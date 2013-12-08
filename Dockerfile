@@ -32,12 +32,13 @@ RUN wget http://fishshell.com/files/2.1.0/fish-2.1.0.tar.gz && tar -zxf fish-2.1
 
 RUN locale-gen en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
+RUN apt-get install -y man-db
 
 # The point of no return, don't add shit below
-ADD . /.dotfiles
-RUN ln -s /.dotfiles/vim /root/.vim
-RUN ln -s /.dotfiles/vimrc /root/.vimrc
-RUN mkdir -p /root/.config/fish && ln -s /.dotfiles/config.fish /root/.config/fish/config.fish
+ADD . /root/.dotfiles
+RUN ln -s /root/.dotfiles/vim /root/.vim && ln -s /root/.dotfiles/vimrc /root/.vimrc
+RUN mkdir -p /root/.config/fish && ln -s /root/.dotfiles/config.fish /root/.config/fish/config.fish
+RUN ln -s /root/.dotfiles/tmux.conf /root/.tmux.conf
 
 CMD \
 	ssh-keygen -f /root/.ssh/id_rsa -N "" >/dev/null &&\

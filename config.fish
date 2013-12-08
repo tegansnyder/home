@@ -67,6 +67,7 @@ alias iptbleshow='iptables -L -n -t nat'
 alias lsa='ls -lah --color=auto'
 alias ls='ls -lh --color=auto'
 
+alias docker='docker -H unix:///tmp/run/docker.sock'
 
 function _git_branch_name
   echo (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')

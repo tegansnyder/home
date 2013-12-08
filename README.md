@@ -1,15 +1,19 @@
-This is my complete dotfile setup for my development box.  It works on OSX but must of the features 
-are for Linux.  My linux install is a base Ubuntu 13.10 Server with only SSH Server selected
-during the install.
+## $HOME
 
-Look at the `bootstrap.sh` script to see how the development environment is setup.
-
-### Bootstrapping the install
-Make sure you can ssh into your fresh install of Ubuntu and run this command.  
-The argument to init.sh is the user's name that you want the dotfiles to be installed to.
-
-```bash
-ssh michael@xxx wget https://raw.github.com/crosbymichael/.dotfiles/master/init.sh && chmod +x init.sh && sudo ./init.sh michael
-```
+This is my complete development environment for [Go](http://golang.org) and [Docker](http://docker.io) 
+development.  It is completly contained in a docker container so that it is consistent and repeatable
+running on any docker host.
 
 
+If your interested in the software installed or how it is built just look in the Dockerfile.  If you
+notice some applications missing that is because these can be ran as separate containers with docker.
+
+
+### Building
+To build the container just run:
+`docker build -t home github.com/crosbymichael/home`
+
+
+### Running
+To run the container just:
+`docker run -t -i crosbymichael/home`

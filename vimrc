@@ -1,5 +1,3 @@
-" crosbymichael.com
-
 set shell=/bin/bash
 
 call pathogen#infect()
@@ -48,7 +46,6 @@ autocmd BufEnter * :syntax sync fromstart
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
-" Filetype
 filetype on
 filetype plugin on
 
