@@ -1,0 +1,8 @@
+*.pyc
+*.class
+bin/server
+vim/.netrwhist
+local/*
+build/*
+*.orig
+.vagrant*
