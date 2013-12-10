@@ -17,3 +17,6 @@ To build the container just run:
 ### Running
 To run the container just:
 `docker run -t -i crosbymichael/home`
+
+Running for docker development:
+`docker run -t -i -v /usr/local/bin/docker:/usr/local/bin/docker -v /var/run/:/tmp/run crosbymichael/home`

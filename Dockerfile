@@ -1,5 +1,7 @@
 FROM ubuntu
 
+RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+RUN apt-get update
 RUN apt-get install -y --force-yes \
 	vim \
 	curl \
@@ -21,6 +23,8 @@ RUN apt-get install -y --force-yes \
 	build-essential \
 	make \
 	automake \
+	man-db \
+	lxc \
 	tmux
     
 RUN curl -s http://go.googlecode.com/files/go1.2.linux-amd64.tar.gz | tar -v -C /usr/local -xz
@@ -32,7 +36,8 @@ RUN wget http://fishshell.com/files/2.1.0/fish-2.1.0.tar.gz && tar -zxf fish-2.1
 
 RUN locale-gen en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
-RUN apt-get install -y man-db
+RUN wget -O /usr/local/bin/docker https://get.docker.io/builds/Linux/x86_64/docker-latest && chmod +x /usr/local/bin/docker
+VOLUME ["/var/lib/docker"]
 
 # The point of no return, don't add shit below
 ADD . /root/.dotfiles
