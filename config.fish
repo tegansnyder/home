@@ -5,7 +5,7 @@ set PATH /usr/local/go/bin $PATH;
 
 set -x GOROOT /usr/local/go
 set -x GOBIN $GOROOT/bin
-set -x GOPATH $HOME/gocode
+set -x GOPATH $HOME/development/gocode
 
 # -------------------------------------- #
 # --------------Aliases----------------- #
@@ -66,6 +66,7 @@ alias listinstalled='dpkg --get-selections'
 alias iptbleshow='iptables -L -n -t nat'
 alias lsa='ls -lah --color=auto'
 alias ls='ls -lh --color=auto'
+
 
 function _git_branch_name
   echo (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
